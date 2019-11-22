@@ -52,7 +52,6 @@ def assert_utils(self, response, htttpCode, success, code, message):
 
 # 读取登陆数据
 def read_login_data():
-    app.init_logging()
     login_data = app.BASEDIR + "/data/login.json"
     with open(login_data, mode='r', encoding='utf-8') as f:
         jsonData = json.load(f)
@@ -71,7 +70,6 @@ def read_login_data():
 
 
 def read_add_emp():
-    app.init_logging()
     add_emp_data_path = app.BASEDIR + "/data/emp_data.json"
     add_emp_result_list = []
     with open(add_emp_data_path, mode='r', encoding='utf-8') as f:
@@ -88,8 +86,8 @@ def read_add_emp():
     logging.info("添加员工数据列表为：{}".format(add_emp_result_list))
     return add_emp_result_list
 
+
 def read_query_emp():
-    app.init_logging()
     query_emp_data_path = app.BASEDIR + "/data/emp_data.json"
     query_emp_result_list = []
     with open(query_emp_data_path, mode='r', encoding='utf-8') as f:
@@ -106,7 +104,6 @@ def read_query_emp():
 
 
 def read_update_emp():
-    app.init_logging()
     update_emp_data_path = app.BASEDIR + "/data/emp_data.json"
     update_emp_result_list = []
     with open(update_emp_data_path, mode='r', encoding='utf-8') as f:
@@ -124,7 +121,6 @@ def read_update_emp():
 
 
 def read_delete_emp():
-    app.init_logging()
     delete_emp_data_path = app.BASEDIR + "/data/emp_data.json"
     delete_emp_result_list = []
     with open(delete_emp_data_path, mode='r', encoding='utf-8') as f:
@@ -138,6 +134,7 @@ def read_delete_emp():
         delete_emp_result_list.append((http_code, success, code, message))
     logging.info("添加员工数据列表为：{}".format(delete_emp_result_list))
     return delete_emp_result_list
+
 
 if __name__ == '__main__':
     read_delete_emp()
